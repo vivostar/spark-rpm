@@ -49,7 +49,7 @@ ln -s -r %{buildroot}/usr/lib/%{name}3/conf  %{buildroot}/etc/%{name}3/
 if ! /usr/bin/id spark &>/dev/null; then
     /usr/sbin/useradd -r -d /var/lib/spark -s /bin/sh -c "spark" spark || \
         %logmsg "Unexpected error adding user \"spark\". Aborting installation."
-    # /sbin/usermod -a -G hadoop dolphinscheduler
+    # /sbin/usermod -a -G hadoop spark
 fi
 
 %post

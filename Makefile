@@ -20,8 +20,7 @@ mkdir: clean
 
 download: mkdir
 	[ ! -f "${full_name}.tgz" ] && curl -L -o ./$(full_name).tgz $(download_url); \
-	cp ./$(full_name).tgz rpmbuild/SOURCES; 
-	cp libs/*  init.d/* rpmbuild/SOURCES; 
+	cp ./$(full_name).tgz rpmbuild/SOURCES; cp libs/*  rpmbuild/SOURCES; 
 
 rpm: download
 	rpmbuild $(RPM_OPTS) \
