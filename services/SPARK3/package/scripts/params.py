@@ -68,7 +68,7 @@ stack_root = Script.get_stack_root()
 stack_version_unformatted = config['clusterLevelParams']['stack_version']
 stack_version_formatted = format_stack_version(stack_version_unformatted)
 major_stack_version = get_major_version(stack_version_formatted)
-stack_versions = stack_select.get_stack_versions(stack_root)
+stack_versions = stack_select.get_stack_versions(stack_root)[0]
 
 sysprep_skip_copy_tarballs_hdfs = get_sysprep_skip_copy_tarballs_hdfs()
 

@@ -29,6 +29,7 @@ from resource_management.libraries.functions.stack_features import check_stack_f
 from resource_management.libraries.functions.constants import StackFeature
 from resource_management.core.logger import Logger
 from resource_management.core import shell
+from resource_management.core.resources.packaging import Package
 from setup_spark import *
 from spark_service import spark_service
 
@@ -39,7 +40,7 @@ class JobHistoryServer(Script):
     import params
     env.set_params(params)
     
-    self.install_packages(env)
+    Package(params.spark_package_name)
     
   def configure(self, env, upgrade_type=None, config_dir=None):
     import params
