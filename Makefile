@@ -3,7 +3,7 @@ SHELL := /bin/bash
 version = 3.2.2
 name = spark
 full_name = $(name)-$(version)-bin-hadoop3.2
-download_url = " https://repo.huaweicloud.com/apache/$(name)/$(name)-$(version)/$(full_name).tgz"
+download_url = "https://repo.huaweicloud.com/apache/$(name)/$(name)-$(version)/$(full_name).tgz"
 
 all: rpm
 
