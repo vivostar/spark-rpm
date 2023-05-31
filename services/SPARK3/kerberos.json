@@ -94,7 +94,7 @@
             },
             {
               "name": "shs_spark_service_identity",
-              "reference": "/SPARK/spark_service_keytab",
+              "reference": "/SPARK3/spark_service_keytab",
               "principal": {
                 "configuration": "spark-defaults/spark.history.kerberos.principal"
               },
@@ -104,7 +104,7 @@
             },
             {
               "name": "sts_spark_service_identity_2_thrift",
-              "reference": "/SPARK/spark_service_keytab",
+              "reference": "/SPARK3/spark_service_keytab",
               "principal": {
                 "configuration": "spark-thrift-sparkconf/spark.yarn.principal"
               },
