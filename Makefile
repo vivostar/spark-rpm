@@ -20,7 +20,7 @@ mkdir: clean
 
 download: mkdir
 	[ ! -f "${full_name}.tgz" ] && curl -L -o ./$(full_name).tgz $(download_url); \
-	cp ./$(full_name).tgz rpmbuild/SOURCES; cp libs/*  rpmbuild/SOURCES; 
+	cp ./$(full_name).tgz rpmbuild/SOURCES; cp libs/* scripts/* rpmbuild/SOURCES; 
 
 rpm: download
 	rpmbuild $(RPM_OPTS) \
@@ -33,3 +33,15 @@ rpm: download
 	  --define "_sourcedir  %{_topdir}/rpmbuild/SOURCES" \
 	  --define "VERSION $(version)" \
 	  -ba spark.spec
+
+spark3: download
+	rpmbuild $(RPM_OPTS) \
+	  --define "_topdir %(pwd)" \
+	  --define "_builddir %{_topdir}/rpmbuild/BUILD" \
+	  --define "_buildrootdir %{_topdir}/rpmbuild/BUILDROOT" \
+	  --define "_rpmdir %{_topdir}/rpmbuild/RPMS" \
+	  --define "_srcrpmdir %{_topdir}/rpmbuild/SRPMS" \
+	  --define "_specdir %{_topdir}" \
+	  --define "_sourcedir  %{_topdir}/rpmbuild/SOURCES" \
+	  --define "VERSION $(version)" \
+	  -ba spark3.spec
